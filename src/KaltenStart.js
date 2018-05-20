@@ -23,8 +23,6 @@ class KaltenStart extends React.Component {
   render() {
     return(
       <div>
-        <section style={sectionStyle}>
-        </section>
         <ul class="nav nav-pills text-danger">
           <Button bsStyle='danger' onClick={this.onButtonClick.bind(this)}>Portal Infos</Button>
           <Button bsStyle='danger' onClick={this.onButtonClick.bind(this)}>Video</Button>
