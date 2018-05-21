@@ -19,11 +19,11 @@ class App extends Component {
 
     componentWillMount() {
         this.updatePortalData();
-        this.timer = setInterval(() => this.updatePortalData(), 2000);
+        this.timer = setInterval(() => this.updatePortalData(), 250);
     }
 
     updatePortalData() {
-        fetch('/api/portal/wigwam')
+        fetch('/api/portal/dynamic')
             .then(response => {
                 console.log(response);
                 return response.json();
