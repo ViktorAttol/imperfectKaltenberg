@@ -14,6 +14,17 @@ The frontend requires at least one video to be present in `client/public/video/0
 
 ## Run in dev
 ```
- # npm start on project root will bring up the backend on http://localhost:3001 and the frontend on http://localhost:3001
+ # npm start on project root will bring up the backend on http://localhost:3001 and the frontend on http://localhost:3000
  npm start 
+```
+
+## Build and serve
+```
+ # building the react client
+ cd client
+ npm build
+ cd ..
+
+ # npm run server will bring up the full Imperfect Humanist application (frontend and backend) on http://localhost:3001
+ npm run server
 ```

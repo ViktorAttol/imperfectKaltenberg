@@ -1,7 +1,13 @@
 const express = require('express');
 const request = require('request');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3001;
+
+app.use(express.static(path.join(__dirname, '../client/build')));
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 app.get('/api/portal/wigwam', (req, res) => {
     request.get(
