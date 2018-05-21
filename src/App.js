@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Portal from './components/Portal';
-import backgroundImage from './pics/poster-10.jpg';
-import KaltenStart from "./KaltenStart";
+import backgroundImage from './images/poster-10.jpg';
 
 var backgroundStyle = {
     backgroundImage: 'url(' + backgroundImage + ')',
@@ -36,7 +35,6 @@ class App extends Component {
                     <h1 className="pt-xl-5 pb-xl-3">Imperfect Humanist</h1>
                     <Portal portal={this.state.portal} />
                 </div>
-                <KaltenStart />
             </div>
         );
     }
