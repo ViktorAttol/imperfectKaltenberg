@@ -4,7 +4,6 @@ import PortalMod from './PortalMod';
 
 class Portal extends React.Component {
     render() {
-        console.log(this.props.portal);
         let resonators = <div>no resonators</div>;
         if (this.props.portal.resonators) {
             resonators = this.props.portal.resonators.map(resonator => {

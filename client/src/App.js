@@ -21,10 +21,14 @@ class App extends Component {
     }
 
     updatePortalData() {
-        fetch('./portalData.json')
-            .then(result => result.json())
-            .then(result => {
-                this.setState({ portal: result });
+        fetch('/api/portal/static')
+            .then(response => {
+                console.log(response);
+                return response.json();
+            })
+            .then(response => {
+                console.log(response);
+                this.setState({ portal: response.result });
             });
     }
 
