@@ -40,7 +40,6 @@ class Portal extends React.Component {
                         {mods}
                     </tbody>
                 </table>
-
             </div>
         );
     }
