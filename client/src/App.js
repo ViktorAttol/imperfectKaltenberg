@@ -36,7 +36,7 @@ class App extends Component {
                         data.result.controllingFaction &&
                         data.result.controllingFaction !== 'Neutral' &&
                         prevState.portal.controllingFaction &&
-                        prevState.portal.controllingFaction != data.result.controllingFaction
+                        prevState.portal.controllingFaction !== data.result.controllingFaction
                     )
                 }));
             });
