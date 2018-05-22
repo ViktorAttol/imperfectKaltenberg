@@ -19,7 +19,7 @@ class App extends Component {
 
     componentWillMount() {
         this.updatePortalData();
-        this.timer = setInterval(() => this.updatePortalData(), 250);
+        this.timer = setInterval(() => this.updatePortalData(), 500);
     }
 
     updatePortalData() {
@@ -43,7 +43,6 @@ class App extends Component {
     }
 
     render() {
-        console.log({ capture: this.state.capture });
         return (
             <div style={backgroundStyle}>
                 <div className="main">

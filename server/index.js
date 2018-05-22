@@ -54,38 +54,33 @@ var dynamicPortalState = {};
 var dynamicUpdateActive = true;
 
 function updateDynamicPortalState() {
-    try {
-        console.log('updateDynamicPortalState()...')
-        if (!dynamicUpdateActive) {
-            console.log('updateDynamicPortalState() skipped');
-            return;
-        }
-        request.get(
-            { url: 'http://operation-wigwam.ingress.com:8080/v1/test-info' },
-            function(error, response, body) {
-                if (error || response.statusCode !== 200) {
-                    console.log({error: error.toString()});
+    console.log('updateDynamicPortalState()...')
+    if (!dynamicUpdateActive) {
+        console.log('updateDynamicPortalState() skipped');
+        return;
+    }
+    request.get(
+        { url: 'http://operation-wigwam.ingress.com:8080/v1/test-info' },
+        function(error, response, body) {
+            if (error || response.statusCode !== 200) {
+                console.log({error: error.toString()});
+            } else {
+                data = JSON.parse(body);
+                if (!data.result || !data.code || data.code !== 'OK') {
+                    console.log({
+                        error: 'invalid body from upstream',
+                        errorDetails: body.toString()
+                    });
                 } else {
-                    data = JSON.parse(body);
-                    if (!data.result || !data.code || data.code !== 'OK') {
-                        console.log({
-                            error: 'invalid body from upstream',
-                            errorDetails: body.toString()
-                        });
-                    } else {
-                        dynamicPortalState = data.result;
-                        console.log('updateDynamicPortalState() finished')
-                        //console.log({ dynamicPortalState: dynamicPortalState });
-                    }
+                    dynamicPortalState = data.result;
+                    console.log('updateDynamicPortalState() finished')
                 }
             }
-        );
-    } finally {
-        setTimeout(updateDynamicPortalState, 5000);
-    }
+        }
+    );
 }
 
-setTimeout(updateDynamicPortalState, 500);
+const timer = setInterval(updateDynamicPortalState, 500);
 
 app.get('/api/portal/dynamic', (req, res) => {
     res.json({
