@@ -29,7 +29,7 @@ class Video extends React.Component {
             return null;
         }
         return (
-            <video className="video" src="/video/001.webm" type="video/webm" autoplay="true"
+            <video ref="portalMedia" className="video" src="/video/001.webm" type="video/webm" autoPlay="true"
                    onEnded={this.handleVideoStop.bind(this)}
                    onAbort={this.handleVideoStop.bind(this)}
                    onEmptied={this.handleVideoStop.bind(this)}

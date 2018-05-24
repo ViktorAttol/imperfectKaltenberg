@@ -2,8 +2,6 @@ video {
     position: absolute;
     width: 1280px;
     height: 720px;
-    top: 50%;
-    left: 50%;
-    margin-left: -640px;
-    margin-top: -360px;
+    left: 160px;
+    top: 165px;
 }

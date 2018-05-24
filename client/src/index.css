@@ -1,4 +1,463 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
 body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: 'bebas_neuelight';
+  src: url('fonts/bebasneue_light-webfont.woff2') format('woff2'),
+  url('fonts/bebasneue_light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'codaregular';
+  src: url('fonts/coda.regular_0-webfont.woff2') format('woff2'),
+  url('fonts/coda.regular_0-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body.admin {
+  background-image: url(images/poster-10.jpg);
+  background-repeat: no-repeat;
+  background-color: #000;
   color: #FFFFFF;
-  background-color: #3d3d3d;
+}
+
+body.neutral {
+  background-image: url(images/bg_neutral.png);
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+/* Change color script, works on all properties */
+/*
+transition-property: background-image;
+transition-duration: 2s;
+*/
+
+body.res {
+  background-image: url(images/bg_res.png);
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+body.enl {
+  background-image: url(images/bg_enl.png);
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+html {
+  width: 1650px;
+  height: 1080px;
+}
+
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.faction {
+  position: absolute;
+  left: 32px;
+  top: 84px;
+  width: 200px;
+  height: 40px;
+  float: left;
+}
+
+.faction span.res {
+  font-family: "bebas_neuelight";
+  color: #00f2f9;
+  font-size: 36px;
+  letter-spacing: 0.1em;
+}
+
+.faction span.enl {
+  font-family: "bebas_neuelight";
+  color: #06f900;
+  font-size: 36px;
+}
+
+
+.range {
+  font-family: "bebas_neuelight";
+  font-size: 60px;
+  font-weight: normal;
+  color: #ff9800;
+  position: absolute;
+  left: 200px;
+  top: 256px;
+}
+/* Typewriter animation when owner changes */
+.playername {
+  position: absolute;
+  text-align: center;
+  width: 550px;
+  height: 90px;
+  left: 550px;
+  top: 530px;
+  overflow: hidden;
+  animation: typewriter 2s steps(50) 0s 1 normal both;
+}
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 26em}
+}
+
+.playername span {
+  font-family: codaregular;
+  color: #00f6ff;
+  font-size: 55px;
+  font-weight: 400;
+}
+
+.mods {
+  width: 140px;
+  height: 50px;
+}
+
+.mods .mod1 {
+  position: absolute;
+  text-align: left;
+  left: 630px;
+  top: 410px;
+}
+
+.mods .mod2 {
+  position: absolute;
+  text-align: left;
+  left: 870px;
+  top: 410px;
+}
+
+.mods .mod3 {
+  position: absolute;
+  text-align: left;
+  left: 560px;
+  top: 680px;
+}
+
+.mods .mod4 {
+  position: absolute;
+  text-align: left;
+  left: 800px;
+  top: 680px;
+}
+
+.modtext {
+  font-family: codaregular;
+  color: #00f2f9;
+  font-size: 38px;
+  animation: pulsate 3s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+
+
+.resoplayer{
+  width: 260px;
+  height: 40px;
+}
+
+.resoplayer span {
+  font-family: codaregular;
+  color: #00f6ff;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+
+.one {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 95px;
+}
+
+
+
+.two {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 215px;
+}
+
+.three {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 338px;
+}
+
+.four {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 461px;
+}
+
+.five {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 586px;
+}
+
+.six {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 709px;
+}
+
+.seven {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 832px;
+}
+
+.eight {
+  position: absolute;
+  text-align: center;
+  width: 260px;
+  height: 40px;
+  left: 1225px;
+  top: 952px;
+}
+
+
+
+
+.resoslots {
+  font-family: "bebas_neuelight";
+  font-size: 86.01px;
+
+  color: #00f6ff;
+  transform: scale(0.245,0.245);
+}
+
+
+.portallevel {
+  position: absolute;
+  text-align: center;
+  width: 200px;
+  height: 180px;
+  left: 225px;
+  top: 420px;
+}
+.portallevel span {
+  font-family: codaregular;
+  color: #ffffff;
+  font-size: 220px;
+
+}
+
+
+.portalname {
+  position: absolute;
+  text-align: left;
+  width: 350px;
+  height: 50px;
+  left: 620px;
+  top: 842px;
+}
+
+
+.portalname span {
+  font-family: "bebas_neuelight";
+  color: #ffffff;
+  font-size: 42px;
+}
+
+
+.resos {
+  width: 50px;
+  height: 50px;
+}
+
+.l8 {
+  font-family: codaregular;
+  color: #de00ff;
+  font-size: 38px;
+
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 85px;
+}
+
+.l7 {
+  font-family: codaregular;
+  color: #ff00cc;
+  font-size: 38px;
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 208px;
+}
+
+.l6 {
+  font-family: codaregular;
+  color: #ff004e;
+  font-size: 38px;
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 331px;
+}
+
+.l5 {
+  font-family: codaregular;
+  color: #ff0926;
+  font-size: 38px;
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 454px;
+}
+
+.l4 {
+  font-family: codaregular;
+  color: #ff0926;
+  font-size: 38px;
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 578px;
+}
+
+.l3 {
+  font-family: codaregular;
+  color: #ff2a00;
+  font-size: 38px;
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 701px;
+}
+
+.l2 {
+  font-family: codaregular;
+  color: #ff5400;
+  font-size: 38px;
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 824px;
+}
+
+.l1 {
+  font-family: codaregular;
+  color: #ff9600;
+  font-size: 38px;
+  position: absolute;
+  text-align: center;
+  left: 1559px;
+  top: 947px;
+}
+
+.energy {
+  position: absolute;
+  text-align: center;
+  left: 670px;
+  top: 900px;
+}
+.energy span {
+  font-family: "bebas_neuelight";
+  font-size: 60px;
+  color: #ff9800;
+}
+
+.slots {
+  position: absolute;
+  text-align: center;
+  left: 120px;
+  top: 1002px;
+}
+
+.slots .comm span.commtext {
+  font-family: "bebas_neuelight";
+  font-size: 21px;
+  color: #00f6ff;
 }
