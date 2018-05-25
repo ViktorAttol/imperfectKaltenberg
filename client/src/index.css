@@ -232,7 +232,7 @@ html {
 }
 
 
-.one {
+.N {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -243,7 +243,7 @@ html {
 
 
 
-.two {
+.NE {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -252,7 +252,7 @@ html {
   top: 215px;
 }
 
-.three {
+.E {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -261,7 +261,7 @@ html {
   top: 338px;
 }
 
-.four {
+.SE {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -270,7 +270,7 @@ html {
   top: 461px;
 }
 
-.five {
+.S {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -279,7 +279,7 @@ html {
   top: 586px;
 }
 
-.six {
+.SW {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -288,7 +288,7 @@ html {
   top: 709px;
 }
 
-.seven {
+.W {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -297,7 +297,7 @@ html {
   top: 832px;
 }
 
-.eight {
+.NW {
   position: absolute;
   text-align: center;
   width: 260px;
@@ -356,9 +356,8 @@ html {
   height: 50px;
 }
 
-.l8 {
+.rlN {
   font-family: codaregular;
-  color: #de00ff;
   font-size: 38px;
 
   position: absolute;
@@ -367,9 +366,8 @@ html {
   top: 85px;
 }
 
-.l7 {
+.rlNE {
   font-family: codaregular;
-  color: #ff00cc;
   font-size: 38px;
   position: absolute;
   text-align: center;
@@ -377,9 +375,8 @@ html {
   top: 208px;
 }
 
-.l6 {
+.rlE {
   font-family: codaregular;
-  color: #ff004e;
   font-size: 38px;
   position: absolute;
   text-align: center;
@@ -387,9 +384,8 @@ html {
   top: 331px;
 }
 
-.l5 {
+.rlSE {
   font-family: codaregular;
-  color: #ff0926;
   font-size: 38px;
   position: absolute;
   text-align: center;
@@ -397,9 +393,8 @@ html {
   top: 454px;
 }
 
-.l4 {
+.rlS {
   font-family: codaregular;
-  color: #ff0926;
   font-size: 38px;
   position: absolute;
   text-align: center;
@@ -407,9 +402,8 @@ html {
   top: 578px;
 }
 
-.l3 {
+.rlSW {
   font-family: codaregular;
-  color: #ff2a00;
   font-size: 38px;
   position: absolute;
   text-align: center;
@@ -417,9 +411,8 @@ html {
   top: 701px;
 }
 
-.l2 {
+.rlW {
   font-family: codaregular;
-  color: #ff5400;
   font-size: 38px;
   position: absolute;
   text-align: center;
@@ -427,14 +420,45 @@ html {
   top: 824px;
 }
 
-.l1 {
+.rlNW {
   font-family: codaregular;
-  color: #ff9600;
   font-size: 38px;
   position: absolute;
   text-align: center;
   left: 1559px;
   top: 947px;
+}
+
+.l8 {
+  color: #de00ff;
+}
+
+.l7 {
+  color: #ff00cc;
+}
+
+.l6 {
+  color: #ff004e;
+}
+
+.l5 {
+  color: #ff0926;
+}
+
+.l4 {
+  color: #ff0926;
+}
+
+.l3 {
+  color: #ff2a00;
+}
+
+.l2 {
+  color: #ff5400;
+}
+
+.l1 {
+  color: #ff9600;
 }
 
 .energy {
