@@ -103,7 +103,7 @@ class App extends Component {
                     {resonatorLevels}
                 </div>
                 <div className="portalname"><span>{this.state.portal.title}</span></div>
-                <div className="energy"><span>{this.state.health}</span></div>
+                <div className="energy"><span>{Number(this.state.health).toFixed(1)}</span></div>
                 <div className="mods">
                     <div className="mod1"><span className="modtext">CMH</span></div>
                     <div className="mod2"><span className="modtext">RHS</span></div>
