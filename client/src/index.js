@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css';
+import Portal from './Portal';
+import PortalAdmin from './PortalAdmin';
+
+ReactDOM.render((
+    <BrowserRouter>
+        <Switch>
+            <Route exact path='/' component={Portal}/>
+            <Route path='/admin' component={PortalAdmin}/>
+        </Switch>
+    </BrowserRouter>
+), document.getElementById('root'));

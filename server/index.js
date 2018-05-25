@@ -54,9 +54,9 @@ var dynamicPortalState = {};
 var dynamicUpdateActive = true;
 
 function updateDynamicPortalState() {
-    console.log('updateDynamicPortalState()...')
+    // console.log('updateDynamicPortalState()...')
     if (!dynamicUpdateActive) {
-        console.log('updateDynamicPortalState() skipped');
+        // console.log('updateDynamicPortalState() skipped');
         return;
     }
     request.get(
@@ -73,7 +73,10 @@ function updateDynamicPortalState() {
                     });
                 } else {
                     dynamicPortalState = data.result;
-                    console.log('updateDynamicPortalState() finished')
+
+                    // TODO communicate dynamicPortalState to Arduino according to https://github.com/haeusler/imperfectKaltenberg/blob/master/README.md#communication-from-raspi-to-arduino
+
+                    // console.log('updateDynamicPortalState() finished')
                 }
             }
         }

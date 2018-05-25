@@ -5,13 +5,13 @@ const neutral = 'Neutral';
 const resistance = 'Resistance';
 const enlightened = 'Enlightened';
 
-class App extends Component {
-
+class Portal extends Component {
     state = {
         portal: {
             controllingFaction: neutral
         },
         health: 0,
+        initial: true,
         capture: false,
         changeMillis: 4242
     };
@@ -42,7 +42,7 @@ class App extends Component {
                         }, 0.0) / portal.resonators.length;
                     }
                     var change = portal.controllingFaction !== prevState.portal.controllingFaction;
-                    var capture = change && portal.controllingFaction !== neutral;
+                    var capture = !prevState.initial && change && portal.controllingFaction !== neutral;
                     var changeMillis = prevState.changeMillis;
                     if (change) {
                         changeMillis = (new Date()).getTime() % 1000;
@@ -60,6 +60,7 @@ class App extends Component {
                     }
                     var nextState = {
                         portal: data.result,
+                        initial: false,
                         health: health,
                         capture: capture,
                         changeMillis: changeMillis
@@ -129,4 +130,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Portal;
