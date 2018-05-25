@@ -18,7 +18,7 @@ class App extends Component {
 
     componentWillMount() {
         this.updatePortalData();
-        this.timer = setInterval(() => this.updatePortalData(), 20);
+        this.timer = setInterval(() => this.updatePortalData(), 200);
     }
 
     updatePortalData() {
@@ -35,9 +35,11 @@ class App extends Component {
                         portal.controllingFaction = neutral;
                     }
                     var health = 0.0;
+                    console.log(portal.resonators);
                     if (portal.resonators) {
                         health = portal.resonators.reduce((acc, resonator) => {
-                            acc + resonator.health
+                            acc += resonator.health;
+                            return acc;
                         }, 0.0) / portal.resonators.length;
                     }
                     var change = portal.controllingFaction !== prevState.portal.controllingFaction;
@@ -59,7 +61,7 @@ class App extends Component {
                     }
                     var nextState = {
                         portal: data.result,
-
+                        health: health,
                         capture: capture,
                         changeMillis: changeMillis
                     };

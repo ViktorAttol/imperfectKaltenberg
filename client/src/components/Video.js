@@ -13,7 +13,7 @@ class Video extends React.Component {
         if (nextProps.triggerOpen && !prevState.open) {
             var currentVideo = (prevState.currentVideo + 1) % (prevState.maxVideo + 1);
             return {
-                open: true && false,
+                open: true,
                 currentVideo: currentVideo,
                 currentVideoIndex: String('0' + currentVideo).slice(-2),
                 maxVideo: prevState.maxVideo
