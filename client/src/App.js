@@ -35,7 +35,6 @@ class App extends Component {
                         portal.controllingFaction = neutral;
                     }
                     var health = 0.0;
-                    console.log(portal.resonators);
                     if (portal.resonators) {
                         health = portal.resonators.reduce((acc, resonator) => {
                             acc += resonator.health;
@@ -90,6 +89,20 @@ class App extends Component {
             });
         }
 
+        let mods;
+        if (this.state.portal.mods) {
+            mods = this.state.portal.mods.map(mod => {
+                var modtext = (mod.rarity + ' ' + mod.type).split(/[ -]/).map(s => s[0]).join('').toUpperCase();
+                console.log({
+                    type: mod.type,
+                    text: modtext
+                });
+                return (
+                    <div key={'mod' + mod.slot} className={'mod' + mod.slot}><span className="modtext">{modtext}</span></div>
+                );
+            })
+        }
+
         return (
             <div className="main">
                 <div className="faction"><span className="res">{this.state.portal.controllingFaction}</span></div>
@@ -105,10 +118,7 @@ class App extends Component {
                 <div className="portalname"><span>{this.state.portal.title}</span></div>
                 <div className="energy"><span>{Number(this.state.health).toFixed(1)}</span></div>
                 <div className="mods">
-                    <div className="mod1"><span className="modtext">CMH</span></div>
-                    <div className="mod2"><span className="modtext">RHS</span></div>
-                    <div className="mod3"><span className="modtext">VRLA</span></div>
-                    <div className="mod4"><span className="modtext">CS</span></div>
+                    {mods}
                 </div>
                 <div className="slots">
                     <div className="comm"><span className="commtext">N / NE / E / SE / S / SW / W / NW</span></div>
