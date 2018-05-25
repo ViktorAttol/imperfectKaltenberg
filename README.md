@@ -35,9 +35,9 @@ It pushes this state forward to the Arduino, by making HTTP GET calls, whenever 
 at minimum every 60s. The portal state information is encoded in the GET URI, e.g.,
 ```
  GET /r/100/1/2/3/4/5/6/7/8/0 HTTP/1.1
-
- # position 1: controllingFaction ('n' neutral, 'r' resistance, 'e' enlightened)
- # position 2: averagePortalHealth (0 - 100)
- # position 3-10: resonatorLevel (0 no resonator, 1-8 respective level)
- # position 11: extra effect (0 no effect)
 ```
+Legend:
+ * position 1: controllingFaction ('n' neutral, 'r' resistance, 'e' enlightened)
+ * position 2: averagePortalHealth (0 - 100)
+ * position 3-10: resonatorLevel (0 no resonator, 1-8 respective level)
+ * position 11: extra effect (0 no effect)

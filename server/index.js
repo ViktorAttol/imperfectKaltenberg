@@ -50,8 +50,21 @@ app.get('/api/portal/static', (req, res) => {
     });
 });
 
+const resoPositionMapping = {
+    'N': 0,
+    'NE': 1,
+    'E': 2,
+    'SE': 3,
+    'S': 4,
+    'SW': 5,
+    'W': 6,
+    'NW': 7
+}
+
 var dynamicPortalState = {};
 var dynamicUpdateActive = true;
+var lastArduinoPortalState = '';
+var lastArduinoUpdate = -1;
 
 function updateDynamicPortalState() {
     // console.log('updateDynamicPortalState()...')
@@ -73,10 +86,31 @@ function updateDynamicPortalState() {
                     });
                 } else {
                     dynamicPortalState = data.result;
-
-                    // TODO communicate dynamicPortalState to Arduino according to https://github.com/haeusler/imperfectKaltenberg/blob/master/README.md#communication-from-raspi-to-arduino
-
                     // console.log('updateDynamicPortalState() finished')
+
+                    var health = 0.0;
+                    var resoLevels = [0, 0, 0, 0, 0, 0, 0, 0];
+                    if (dynamicPortalState.resonators) {
+                        health = Math.min(100, Math.round(
+                            dynamicPortalState.resonators.reduce((acc, resonator) => {
+                                resoLevels[resoPositionMapping[resonator.position]] = Math.min(8, resonator.level);
+                                var position = resonator.position;
+                                acc += resonator.health;
+                                return acc;
+                            }, 0.0) / dynamicPortalState.resonators.length
+                        ));
+                    }
+                    var arduinoPortalState = ''
+                        + '/' + dynamicPortalState.controllingFaction[0].toLowerCase()
+                        + '/' + health
+                        + '/' + resoLevels.join('/')
+                        + '/' + 0;
+                    var now = new Date().getTime();
+                    if ((now - lastArduinoUpdate) >= 60000 || (arduinoPortalState !== lastArduinoPortalState && (now - lastArduinoUpdate) >= 10000)) {
+                        console.log('TODO: send ' + arduinoPortalState);
+                        lastArduinoPortalState = arduinoPortalState;
+                        lastArduinoUpdate = now;
+                    }
                 }
             }
         }
