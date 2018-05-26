@@ -106,11 +106,11 @@ function updateDynamicPortalState() {
                         + '/' + resoLevels.join('/')
                         + '/' + 0;
                     var now = new Date().getTime();
-                    if ((now - lastArduinoUpdate) >= 60000 || (arduinoPortalState !== lastArduinoPortalState && (now - lastArduinoUpdate) >= 10000)) {
+                    if ((now - lastArduinoUpdate) >= 3000 || (arduinoPortalState !== lastArduinoPortalState && (now - lastArduinoUpdate) >= 3000)) {
                         lastArduinoPortalState = arduinoPortalState;
                         lastArduinoUpdate = now;
                         request.get(
-                            { url: 'http://192.168.177.83/' + arduinoPortalState},
+                            { url: 'http://192.168.177.83' + arduinoPortalState},
                             function(error, response, body) {
                                 if (error || response.statusCode !== 200) {
                                     console.log({

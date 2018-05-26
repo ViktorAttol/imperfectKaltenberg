@@ -17,8 +17,6 @@
 CRGB resos[NUM_RESOS][NUM_LEDS_PER_RESO];
 CRGB portal_strips[NUM_PORTAL_STRIPS][NUM_LEDS_PER_PORTAL_STRIP];
 
-// For mirroring strips, all the "special" stuff happens just in setup.  We
-// just addLeds multiple times, once for each strip
 void setup() {
   FastLED.addLeds<LED_TYPE, 0, COLOR_ORDER>(resos[0], NUM_LEDS_PER_RESO).setCorrection( TypicalLEDStrip );
   FastLED.addLeds<LED_TYPE, 1, COLOR_ORDER>(resos[1], NUM_LEDS_PER_RESO).setCorrection( TypicalLEDStrip );
@@ -36,18 +34,18 @@ void setup() {
 void loop() {
   for(int x = 0; x < NUM_LEDS_PER_RESO; x++) {
     for(int i = 0; i < NUM_RESOS; i++) {
-      resos[i][x] = CRGB::Red;
-    }
-    for(int i = 0; i < NUM_PORTAL_STRIPS; i++) {
-      portal_strips[i][x] = CRGB::Blue;
-    }
-    FastLED.show();
-    for(int i = 0; i < NUM_RESOS; i++) {
       resos[i][x] = CRGB::Black;
     }
     for(int i = 0; i < NUM_PORTAL_STRIPS; i++) {
       portal_strips[i][x] = CRGB::Black;
     }
-    delay(50);
+    FastLED.show();
+    for(int i = 0; i < NUM_RESOS; i++) {
+      resos[i][x] = CRGB::Red;
+    }
+    for(int i = 0; i < NUM_PORTAL_STRIPS; i++) {
+      portal_strips[i][x] = CRGB::Blue;
+    }
+    delay(100);
   }
 }
