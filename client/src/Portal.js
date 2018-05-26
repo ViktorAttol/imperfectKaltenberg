@@ -93,7 +93,13 @@ class Portal extends Component {
         let mods;
         if (this.state.portal.mods) {
             mods = this.state.portal.mods.map(mod => {
-                var modtext = (mod.rarity + ' ' + mod.type).split(/[ -]/).map(s => s[0]).join('').toUpperCase();
+                var modtext = (mod.rarity + ' ' + mod.type).split(/[ -]/).map(s => s[0]).join('').toUpperCase().slice(0, 5);
+                if (mod.type === 'Ito En Transmuter (+)') {
+                    modtext = 'ITO+';
+                }
+                if (mod.type === 'Ito En Transmuter (-)') {
+                    modtext = 'ITO-';
+                }
                 console.log({
                     type: mod.type,
                     text: modtext

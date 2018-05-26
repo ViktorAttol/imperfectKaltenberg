@@ -22,6 +22,10 @@ class Video extends React.Component {
         return null;
     }
 
+    componentDidMount() {
+
+    }
+
     handleVideoStop() {
         this.setState({ open: false });
     }
@@ -36,7 +40,7 @@ class Video extends React.Component {
             return null;
         }
         return (
-            <video ref="portalMedia" className="video" src={"/video/loop/" + this.state.currentVideoIndex + ".mp4"} type="video/mp4" autoPlay="true"
+            <video ref="portalMedia" className="video" src={"/video/loop/" + this.state.currentVideoIndex + ".mp4"} type="video/mp4" muted="true" autoPlay="true"
                    onEnded={this.handleVideoStop.bind(this)}
                    onAbort={this.handleVideoStop.bind(this)}
                    onEmptied={this.handleVideoStop.bind(this)}

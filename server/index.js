@@ -73,7 +73,7 @@ function updateDynamicPortalState() {
         return;
     }
     request.get(
-        { url: 'http://operation-wigwam.ingress.com:8080/v1/test-info' },
+        { url: 'http://192.168.12.219:8080/v1/info' },
         function(error, response, body) {
             if (error || response.statusCode !== 200) {
                 console.log({error: error.toString()});
@@ -91,14 +91,14 @@ function updateDynamicPortalState() {
                     var health = 0.0;
                     var resoLevels = [0, 0, 0, 0, 0, 0, 0, 0];
                     if (dynamicPortalState.resonators) {
-                        health = Math.min(100, Math.round(
+                        health = ("000" + Math.min(100, Math.round(
                             dynamicPortalState.resonators.reduce((acc, resonator) => {
                                 resoLevels[resoPositionMapping[resonator.position]] = Math.min(8, resonator.level);
                                 var position = resonator.position;
                                 acc += resonator.health;
                                 return acc;
                             }, 0.0) / dynamicPortalState.resonators.length
-                        ));
+                        ))).slice(-3);
                     }
                     var arduinoPortalState = ''
                         + '/' + dynamicPortalState.controllingFaction[0].toLowerCase()
@@ -107,9 +107,22 @@ function updateDynamicPortalState() {
                         + '/' + 0;
                     var now = new Date().getTime();
                     if ((now - lastArduinoUpdate) >= 60000 || (arduinoPortalState !== lastArduinoPortalState && (now - lastArduinoUpdate) >= 10000)) {
-                        console.log('TODO: send ' + arduinoPortalState);
                         lastArduinoPortalState = arduinoPortalState;
                         lastArduinoUpdate = now;
+                        request.get(
+                            { url: 'http://192.168.177.83/' + arduinoPortalState},
+                            function(error, response, body) {
+                                if (error || response.statusCode !== 200) {
+                                    console.log({
+                                        message: 'could not send update to arduino',
+                                        error: error,
+                                        failedArduinoPortalState: arduinoPortalState
+                                    });
+                                } else {
+                                    console.log({sentArduinoPortalState: arduinoPortalState});
+                                }
+                            }
+                        );
                     }
                 }
             }
