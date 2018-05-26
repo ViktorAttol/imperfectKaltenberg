@@ -128,6 +128,7 @@ String getValue(String data, char separator, int index) {
 
 void processCmd(String cmd) {
     Serial.print(cmd + '\n');
+
     char faction = getValue(cmd, '/', 1).charAt(0);
     CRGB factionColor = CRGB::White;
     if (faction == 'r') {
@@ -135,6 +136,9 @@ void processCmd(String cmd) {
     } else if (faction == 'e') {
         factionColor = CRGB::Green;
     }
+
+    int health = getValue(cmd, '/', 2).toInt();
+    FastLED.setBrightness(50 + (health * 2));
 
     for(int x = 0; x < NUM_LEDS_PER_RESO; x++) {
         for(int i = 0; i < NUM_RESOS; i++) {
